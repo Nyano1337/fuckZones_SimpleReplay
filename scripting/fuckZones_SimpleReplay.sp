@@ -1,3 +1,13 @@
+/**
+ * ------------------------------Basic Steps-----------------------------------------
+ * 1. Use OnPlayerRunCmd function to record our movement, use variables to store them.
+ * 2. Store the contents of the above variables in our hard disk in the form of binary data.
+ * 3. Set the plug-in entry ( OnMapStart, RegConsoleCmd or other stuff ) to read the file data in the hard disk
+ * 4. Translate the file data (binary) into our readable data and record it with variables
+ * 5. Interfere with BOT and set the operations of BOT to the contents of the above variables
+ * 6. Check bugs, check memory leaks
+ */
+
 #include <sourcemod>
 #include <sdktools>
 #include <sdkhooks>
