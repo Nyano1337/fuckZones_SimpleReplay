@@ -185,6 +185,7 @@ bool LoadReplay()
 	char sHeader[64];
 	if(!fFile.ReadLine(sHeader, 64))
 	{
+		delete fFile;
 		return false;
 	}
 
