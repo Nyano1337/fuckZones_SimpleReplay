@@ -167,6 +167,9 @@ public Action Command_Replay(int client, int args)
 	return Plugin_Handled;
 }
 
+// you can load cksurf, gokz, shavit, btimes, influx and some other replays by different headers, and some meta stuff
+// if your replay dont have a header, just load it by using 'if else'
+// if there are two different plugins' replay and both dont have header, you screwed
 bool LoadReplay()
 {
 	char sPath[PLATFORM_MAX_PATH];
@@ -229,6 +232,7 @@ public void fuckZones_OnStartTouchZone_Post(int client, int entity, const char[]
 	}
 }
 
+// remember to save replay by headers first!!!
 bool SaveReplay(int client)
 {
 	char sPath[PLATFORM_MAX_PATH];
@@ -318,8 +322,8 @@ Action OnReplayCmd(int bot, int &buttons, float vel[3])
 	vel[0] = 0.0;
 	vel[1] = 0.0;
 
-	SetEntProp(bot, Prop_Data, "m_CollisionGroup", 2);
-	SetEntityMoveType(bot, MOVETYPE_NOCLIP);
+	SetEntProp(bot, Prop_Data, "m_CollisionGroup", 2);// noblock
+	SetEntityMoveType(bot, MOVETYPE_NOCLIP);// make bot smooth
 
 	int iFrameCount = gA_ReplayFrames.Length;
 
